@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html x-ng-app="TicTac">
+  <head>
+    <title>Battle OF The Bands Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <meta charset="UTF-8">
+    <header>Battle of the Bands</header>
+  </head>
+  <body> 
+    <div class="container" ng-controller="TicTacCtrl">
+      <div class="message"><h1>{{winner}}</h1></div>
+      <div ng-repeat="box in boxes track by $index" 
+        x-ng-class="{cell:true, clear: $index % 3 == 0, pic1:boxes[$index]=='v', pic2:boxes[$index]=='z'}" 
+        x-ng-click="takeTurn($index)"> 
+        {{box}}</div>
+      
+    </div>
+  </body>
+</html>
