@@ -14,8 +14,8 @@
   <body> 
     <div class="container" ng-controller="TicTacCtrl">
       <div class="message"><h1>{{winner}}</h1></div>
-      <div ng-repeat="box in boxes track by $index" 
-        x-ng-class="{cell:true, clear: $index % 3 == 0, pic1:boxes[$index]=='v', pic2:boxes[$index]=='z'}" 
+      <div ng-repeat="box in obj.boxes track by $index" 
+        x-ng-class="{cell:true, clear: $index % 3 == 0, pic1:obj.boxes[$index]=='v', pic2:obj.boxes[$index]=='z'}" 
         x-ng-click="takeTurn($index)"> 
         {{box}}</div>
       
