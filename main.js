@@ -15,8 +15,8 @@ angular.module("TicTac", ["firebase"])
       $scope.fbLink.$add({ 
         boxes: ['','','','','','','','',''],
         xTurn: 'v',
-        turnCounter: 1,
-        // winner: '',
+        turnCounter: 1
+        // winner: ''
       });
       $scope.fbLink.$on("change", function() {
         IDs = $scope.fbLink.$getIndex();
@@ -43,7 +43,7 @@ angular.module("TicTac", ["firebase"])
       alert('jackass!') // Top IF -- This pops up if we try to click a box already clicked
     };
     if ($scope.obj.turnCounter >= 5) {
-      $scope.obj.checkWin();
+      $scope.checkWin();
     };
     $scope.obj.turnCounter++;
     $scope.obj.$save()
@@ -52,7 +52,7 @@ angular.module("TicTac", ["firebase"])
     $scope.obj.winAry = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     for (var i = 0; i < 8; i++) {
       if ($scope.obj.boxes[$scope.obj.winAry[i][0]] == $scope.obj.boxes[$scope.obj.winAry[i][1]] && $scope.obj.boxes[$scope.obj.winAry[i][0]] == $scope.obj.boxes[$scope.obj.winAry[i][2]] && $scope.obj.boxes[$scope.obj.winAry[i][0]] !== "") {
-          $scope.obj.winner = "Winner!";
+          $scope.winner = "Winner!";
           break; // What to add to stop being able to click boxes
         }
       else {
